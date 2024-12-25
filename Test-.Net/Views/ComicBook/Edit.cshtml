@@ -1,0 +1,49 @@
+@model ComicBook
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>title</title>
+    <style>
+        .field-validation-error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <h1>Create New Comic Book</h1>
+        @using (Html.BeginForm("ProcessEdit", "ComicBooks", FormMethod.Post)) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div>
+                @Html.LabelFor(model => model.ComicBookId)
+                @Html.TextBoxFor(model => model.ComicBookId)
+                @Html.ValidationMessageFor(model => model.ComicBookId)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Author)
+                @Html.TextBoxFor(model => model.Author)
+                @Html.ValidationMessageFor(model => model.Author)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.PricePerDay)
+                @Html.TextBoxFor(model => model.PricePerDay)
+                @Html.ValidationMessageFor(model => model.PricePerDay)
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
+            </div>
+        }
+    </div>
+
+</div>
+</body>
+</html>
